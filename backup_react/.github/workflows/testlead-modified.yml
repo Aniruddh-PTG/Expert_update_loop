@@ -1,0 +1,23 @@
+name: TestLead Modified Sync
+
+on:
+  push:
+    paths:
+      - 'Password Test Case Updated.docx'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Create modified file
+        run: |
+          cp 'Password Test Case Updated.docx' 'Password Test Case Updated modified.docx'
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-create modified file for Product Owner" 
