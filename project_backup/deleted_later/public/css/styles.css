@@ -1,0 +1,55 @@
+.changes-container {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 16px;
+    z-index: 1000;
+}
+
+.change-item {
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.change-item h4 {
+    margin: 0 0 8px 0;
+    color: #18104a;
+}
+
+.change-item p {
+    margin: 0 0 12px 0;
+    color: #666;
+}
+
+.change-item button {
+    background: #7bb241;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.change-item button:last-child {
+    background: #e31c24;
+}
+
+.updated {
+    animation: highlight 1s ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: #f8fff2;
+    }
+    100% {
+        background-color: transparent;
+    }
+} 

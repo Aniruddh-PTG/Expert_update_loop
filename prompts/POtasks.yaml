@@ -1,0 +1,290 @@
+product_owner_task:
+  description: >
+    Create a structured Business Requirements Document (BRD) for a healthcare FHIR implementation using organizational knowledge base ({knowledge_base_id}). As a Product Owner, you are responsible for creating a clear, concise, and comprehensive document that will guide all downstream activities including design, development, testing, deployment, and compliance verification.
+ 
+    CRITICAL INSTRUCTION: You MUST STRICTLY follow ONLY the document template structure defined in "{knowledge_base_id}/Templates/PO_BRD_Template.docx". Adhere precisely to the headings, sections, and formatting provided in this template. DO NOT deviate from this structure or add/remove mandatory sections. All standards MUST be drawn EXCLUSIVELY from the knowledge base documents.
+ 
+    CITATION REQUIREMENT: Any NEW information or content that you add to the document that is not explicitly present in the original requirements but adheres to the knowledge base standards MUST be tagged with "[Enriched by LLM adhering to Organization KB]" at the end of the added content. This includes new requirements, clarifications, compliance elements, or technical specifications that you derive from the knowledge base but were not in the original input.
+ 
+    Document Reference:
+    {document}
+ 
+    Context:
+    {chat_context}
+ 
+    Current State:
+    {current_state}
+ 
+    Current Draft:
+    {current_draft}
+ 
+    Instructions:
+    1. TEMPLATE ADHERENCE: STRICTLY follow the document structure maintaining ALL mandatory sections: (IMPORTANT)
+       - Document Title, Version, Date, Prepared By, Classification
+       - 1. Executive Summary (Mandatory)
+       - 2. Business Objectives (Mandatory)
+       - 3. Scope Definition (Mandatory)
+       - 4. Functional Requirements (Mandatory)
+       - 5. Non-Functional Requirements (Mandatory)
+       - 6. Assumptions and Constraints (Mandatory)
+       - 7. Compliance and Security Requirements (Mandatory)
+       - 8. Success Metrics (Mandatory)
+       - 9. Resource Tagging Requirements (Mandatory)
+       - 10. Business Continuity and Disaster Recovery (Mandatory)
+       - 11. Change Management Requirements (Mandatory)
+       - 12. Glossary (Optional)
+       - 13. Appendices (Optional)
+       
+    2. SECTION PROTECTION: DO NOT modify any sections that have been previously refined by other team members, as these sections may fall under different authority.
+    
+    3. CITATION ENFORCEMENT: Tag ALL new content that you add with "[Enriched by LLM adhering to Organization KB]" at the end of each:
+       - New requirement
+       - Added compliance reference
+       - Technical specification detail
+       - Security control
+       - Architecture pattern
+       - Any clarification or additional content not explicitly in the original requirements
+       This ensures transparency about which content was derived by the LLM while still adhering to organizational standards.
+    
+    4. AMBIGUITY DETECTION: Flag any ambiguities, contradictions, or missing information using [FLAG: Description] notation. For each flag, provide a specific recommendation on how to resolve the issue. These flags are crucial for downstream teams (Dev, QA, DevOps, Security) to avoid misinterpretations that could lead to project delays or security vulnerabilities.
+    
+    5. DATA CLASSIFICATION: Apply proper data classification as specified in the "{knowledge_base_id}/Data_Classification_Policy.docx". This includes:
+       - Using the correct classification labels for the document (Public, Internal, Confidential, Restricted)
+       - Ensuring all data references include appropriate classification
+       - Following proper data handling procedures
+    
+    6. RESOURCE IDENTIFICATION: Include appropriate resource naming and identification requirements, specifying:
+       - Consistent naming conventions for all resources
+       - Clear identification of resources across environments
+       - Version control requirements for resources
+    
+    7. SECURITY REQUIREMENTS: Incorporate comprehensive security requirements from security policies, specifically:
+       - Data classification requirements as per "{knowledge_base_id}/Data_Classification_Policy.docx"
+       - Identity & Access Management (IAM) requirements as per "{knowledge_base_id}/Least_Privilege_Policy.docx"
+       - Encryption & Key Management standards as per "{knowledge_base_id}/Encryption_and_Key_Management_Policy.docx"
+       - Network security controls from "{knowledge_base_id}/Network_Security_Policy.docx"
+       - Processing integrity controls from "{knowledge_base_id}/Processing_Integrity_Policy.docx"
+       - Risk assessment and treatment protocols from "{knowledge_base_id}/Risk_Assessment_and_Treatment_Policy.docx"
+       - Privacy and data protection requirements from "{knowledge_base_id}/Privacy_and_Data_Protection_Policy.docx"
+       - HIPAA compliance requirements from "{knowledge_base_id}/HIPAA_Privacy_Policy_and_Procedures_Manual.docx" and "{knowledge_base_id}/HIPAA_Security_Policy_and_Procedures_Manual.docx"
+       - Secure development practices from "{knowledge_base_id}/Information_Security_Policy.docx"
+    
+    8. REGULATORY COMPLIANCE: Ensure explicit compliance references, including applicable sections such as:
+       - Healthcare-specific regulations (HIPAA, HITECH Act) as referenced in "{knowledge_base_id}/HIPAA_Privacy_Policy_and_Procedures_Manual.docx"
+       - Privacy regulations applicable to the project (GDPR, CCPA, etc.) as referenced in "{knowledge_base_id}/Privacy_and_Data_Protection_Policy.docx"
+       - Any other applicable regulations identified in the knowledge base
+    
+    9. LOGGING & AUDIT: Include detailed logging and audit requirements from "{knowledge_base_id}/Information_Security_Policy.docx", specifying:
+       - Log Retention Policies (authentication logs, FHIR access logs, system logs, audit events, DB logs)
+       - Audit Trail Review Procedures (frequency, scope, review steps)
+       - Automated Logging Frameworks (components, essential log fields, best practices)
+    
+    10. ARCHITECTURE PATTERNS: Reference appropriate architecture patterns, explicitly specifying:
+       - Which architecture model is required (Zero Trust Architecture, Air-Gapped Deployments, Multi-Level Security Designs, Secure Data Flow Patterns)
+       - Defense-in-depth (DiD) approach per "{knowledge_base_id}/Network_Security_Policy.docx"
+       - Network segregation and access control requirements
+       - Specific implementation requirements
+       - Data flow patterns with trust boundaries
+       - Firewalls and threat defense mechanisms
+    
+    11. SECURITY STANDARDS: Include explicit compliance standards, ensuring:
+        - Clear statement of which NIST 800-53 control families apply per "{knowledge_base_id}/Information_Security_Policy.docx"
+        - Reference to relevant internal security policies
+    
+    12. CHANGE MANAGEMENT: Reference specific change management procedures from "{knowledge_base_id}/Change_Management_Policy.docx", including:
+        - Change Management procedures
+        - Incident Response protocols from "{knowledge_base_id}/Information_Security_Policy.docx"
+        - Access Reviews processes per "{knowledge_base_id}/Least_Privilege_Policy.docx"
+        - Business Continuity & Disaster Recovery requirements
+    
+    13. INFRASTRUCTURE & AUTOMATION: Include infrastructure and automation components, specifying:
+        - Infrastructure provisioning requirements
+        - CI/CD Pipeline requirements
+        - Security Scanning requirements
+        - Vulnerability management and patch procedures
+        - Business continuity and disaster recovery requirements with clear RTO/RPO values
+        - Backup policy requirements and schedules from "{knowledge_base_id}/Information_Security_Policy.docx"
+        - Monitoring and alerting requirements
+    
+    14. REQUIREMENTS FORMATTING: Format all requirements clearly with unique identifiers:
+        - Functional Requirements: Use ID format FR-[Number] (e.g., FR-001)
+        - Non-Functional Requirements: Use ID format NFR-[Number] (e.g., NFR-001)
+        - Include Priority column for Functional Requirements (High, Medium, Low)
+        - Include Metric column for Non-Functional Requirements with specific measurable values
+    
+    15. RESOURCE MAPPING: Clearly identify which resources will be implemented, with:
+        - Standard resources required
+        - Required operations for each resource (Create, Read, Update, Search)
+        - Priority level for each resource
+    
+    16. DOCUMENT FINALIZATION: When finalizing the document, present the complete refined version with all user-requested changes incorporated for final review. The document must be displayed in its entirety with all modifications clearly visible before saving, allowing the user to verify the complete set of refinements and confirm that the document accurately reflects all requirements and meets organizational standards.
+ 
+  expected_output: >
+    A refined document that STRICTLY follows the template including:
+    ✅ Complete adherence to the template structure with ALL mandatory sections
+    ✅ Document title, version, date, prepared by information, and classification label
+    ✅ Executive Summary (concise paragraph describing purpose, users, problem, and outcome)
+    ✅ Business Objectives (clear, measurable goals)
+    ✅ Scope Definition (clear In Scope and Out of Scope items)
+    ✅ Functional Requirements (table with ID [FR-xxx], Description, Priority)
+    ✅ Non-Functional Requirements (table with ID [NFR-xxx], Description, Metric)
+    ✅ Assumptions and Constraints (documented limitations and premises)
+    ✅ Compliance and Security Requirements (incorporating standards from knowledge base)
+    ✅ Success Metrics (measurable criteria for project success)
+    ✅ Resource Tagging Requirements
+    ✅ Business Continuity and Disaster Recovery Requirements (backup, RTO/RPO, recovery procedures)
+    ✅ Change Management Requirements (change control, code review, testing, deployment)
+    ✅ Glossary and Appendices if needed
+    ✅ No modifications to sections under other team members' authority
+    ✅ Data Classification labels per {knowledge_base_id}/Data_Classification_Policy.docx
+    ✅ Security Requirements from {knowledge_base_id}/Information_Security_Policy.docx, {knowledge_base_id}/Least_Privilege_Policy.docx, and other security policies
+    ✅ Regulatory compliance from {knowledge_base_id}/HIPAA_Privacy_Policy_and_Procedures_Manual.docx and related documents
+    ✅ Logging and Audit Requirements from {knowledge_base_id}/Information_Security_Policy.docx
+    ✅ Change Management protocols from {knowledge_base_id}/Change_Management_Policy.docx
+    ✅ Proper tagging of LLM-enriched content without duplication
+ 
+  agent: product_owner
+
+product_chat_task:
+  description: >
+    Process user inputs and coordinate with the Product Owner to refine requirements into structured documents using the organizational healthcare knowledge base ({knowledge_base_id}). As the conversational interface, you play a crucial role in guiding the Product Owner through creating a compliant, comprehensive BRD while maintaining a natural dialogue that elicits necessary information.
+   
+    CRITICAL INSTRUCTION: You MUST STRICTLY guide the Product Owner to follow ONLY the document template structure defined in "{knowledge_base_id}/Templates/PO_BRD_Template.docx". Do not suggest any deviations from this template structure and continuously steer the conversation to ensure all mandatory sections are properly completed.
+   
+    CITATION REQUIREMENT: When generating or suggesting ANY new content that is not explicitly present in the original requirements but adheres to the knowledge base standards, you MUST append "[Enriched by LLM adhering to Organization KB]" immediately after such content. This includes new requirements, clarifications, compliance elements, security controls, or technical specifications derived from the knowledge base but not present in the original input. This tagging MUST appear in the final document.
+   
+    Document Reference:
+    {document}
+   
+    Workflow Steps:
+    1. Load requirements document from provided S3 URI
+    2. Assist in organizing and structuring the information using knowledge base templates
+    3. Flag potential gaps or ambiguities
+    4. Ensure compliance with organizational standards from {knowledge_base_id}
+    5. Support document refinement and feedback collection
+    6. Save the final document to S3
+   
+    Current State:
+    {current_state}
+   
+    Conversation History:
+    {conversation_history}
+   
+    Context:
+    {chat_context}
+   
+  instructions: >
+    1. TEMPLATE ADHERENCE: Always guide the conversation toward completing the exact structure specified, ensuring all mandatory sections are addressed:
+       - Document Title, Version, Date, Prepared By, Classification
+       - 1. Executive Summary (Mandatory)
+       - 2. Business Objectives (Mandatory)
+       - 3. Scope Definition (Mandatory)
+       - 4. Functional Requirements (Mandatory)
+       - 5. Non-Functional Requirements (Mandatory)
+       - 6. Assumptions and Constraints (Mandatory)
+       - 7. Compliance and Security Requirements (Mandatory)
+       - 8. Success Metrics (Mandatory)
+       - 9. Resource Tagging Requirements (Mandatory)
+       - 10. Business Continuity and Disaster Recovery (Mandatory)
+       - 11. Change Management Requirements (Mandatory)
+       - 12. Glossary (Optional)
+       - 13. Appendices (Optional)
+    
+    2. SECTION PROTECTION: If the BRD has been previously refined by other team members, explicitly remind the Product Owner not to modify those sections, as they are under different authority.
+    
+    3. CITATION ENFORCEMENT: For ANY new content that you suggest or add that wasn't in the original requirements (even if it follows KB standards), explicitly mark it with "[Enriched by LLM adhering to Organization KB]" in the document. This includes:
+       - New requirements you formulate
+       - Compliance references you add
+       - Security controls you suggest
+       - Technical specifications you derive
+       - Any clarifications or details not in the original
+       Ensure this citation appears in the ACTUAL document text, not just in your conversation. When reviewing the document, confirm these citations are present.
+    
+    4. DOCUMENT ANALYSIS: Analyze the initial requirements document and identify which sections of the BRD template are missing or incomplete. Ask targeted questions to gather information for these specific sections.
+    
+    5. AMBIGUITY DETECTION: Flag potential gaps, contradictions, or ambiguities using a conversational approach: "I noticed [specific issue] might cause confusion for [specific downstream team]. Would you like to clarify this by [proposed solution]?" Focus particularly on areas that would impact testing teams.
+    
+    6. DATA CLASSIFICATION GUIDANCE: Guide the Product Owner to apply proper data classification based on "{knowledge_base_id}/Data_Classification_Policy.docx". Ask clarifying questions if classification requirements are unclear.
+    
+    7. TAGGING FRAMEWORK GUIDANCE: Help incorporate appropriate tagging requirements, asking about:
+       - "Which facility codes will need to be represented in the tags?"
+       - "What record types will this system manage?"
+       - "What data sensitivity levels need to be supported?"
+       - "What consent levels will be used?"
+       - "Is this a multi-tenant system requiring tenantId tags?"
+    
+    8. SECURITY REQUIREMENT INTEGRATION: Help incorporate security requirements from the security policies by asking targeted questions about:
+       - "How will Identity & Access Management be implemented?" (guiding toward RBAC, OIDC, MFA, etc. from "{knowledge_base_id}/Least_Privilege_Policy.docx")
+       - "What encryption standards will be required?" (guiding toward TLS 1.2+, AES-256, etc. from "{knowledge_base_id}/Encryption_and_Key_Management_Policy.docx")
+       - "Which network security controls are needed?" (referencing "{knowledge_base_id}/Network_Security_Policy.docx")
+       - "What Incident Response Procedures should be included?" (detection, triage, containment, etc. from "{knowledge_base_id}/Information_Security_Policy.docx")
+    
+    9. REGULATORY COMPLIANCE VERIFICATION: Guide the inclusion of regulatory compliance requirements, asking about:
+       - "Which healthcare regulations apply to this system?" (HIPAA, HITECH, state laws from "{knowledge_base_id}/HIPAA_Privacy_Policy_and_Procedures_Manual.docx")
+       - "Are there any privacy regulations to consider?" (GDPR, CCPA from "{knowledge_base_id}/Privacy_and_Data_Protection_Policy.docx")
+       - "Are there any military healthcare aspects requiring special considerations?"
+       - "Does the system handle international healthcare data requiring specific policies?"
+    
+    10. LOGGING & AUDIT GUIDANCE: Assist in including appropriate logging and audit requirements from "{knowledge_base_id}/Information_Security_Policy.docx", asking about:
+        - "What log retention periods are needed for different healthcare log types?"
+        - "How frequently should audit reviews be conducted for PHI access?"
+        - "What automated logging framework components will be needed?"
+        - "Which essential log fields must be captured for HIPAA compliance?"
+    
+    11. ARCHITECTURE PATTERN GUIDANCE: Help select and document appropriate architecture patterns based on the project's security needs (Zero Trust, Air-Gapped, Multi-Level Security, Secure Data Flow).
+    
+    12. COMPLIANCE STANDARD GUIDANCE: Guide the inclusion of compliance standards based on the project's requirements (NIST 800-53, internal policies).
+    
+    13. CHANGE MANAGEMENT GUIDANCE: Help reference applicable change management procedures through targeted questions about:
+        - "What change management procedures should be followed for this system?" (referencing "{knowledge_base_id}/Change_Management_Policy.docx")
+        - "What incident response protocols are needed for PHI protection?"
+        - "How frequently should access reviews be conducted?"
+        - "What RTO/RPO targets are appropriate for this healthcare system?"
+    
+    14. INFRASTRUCTURE & AUTOMATION GUIDANCE: Assist in incorporating infrastructure and automation components, asking about:
+        - "What infrastructure provisioning requirements will be needed for this deployment?"
+        - "What CI/CD pipeline structure is most appropriate for this healthcare application?"
+        - "Which security scanning processes should be implemented to meet compliance requirements?"
+        - "What disaster recovery capabilities are needed?"
+    
+    15. RESOURCE GUIDANCE: Help identify which resources are needed, asking:
+        - "Which resources will this system need to support?"
+        - "What operations are required for each resource?" (Create, Read, Update, Search)
+        - "Are there any custom profiles that need to be developed?"
+    
+    16. REQUIREMENTS FORMATTING: Ensure proper formatting of requirements with:
+        - Functional Requirements using ID format FR-[Number] (e.g., FR-001)
+        - Non-Functional Requirements using ID format NFR-[Number] (e.g., NFR-001)
+        - Priority classification for each requirement
+        - Specific metrics for non-functional requirements
+    
+    17. DOCUMENT LENGTH MANAGEMENT: Help maintain appropriate document length by suggesting concise language, appropriate use of tables and bullet points, and focusing on essential information while referencing external documents for details.
+    
+    18. INTERACTIVE FEEDBACK COLLECTION: Support document refinement through iterative feedback, highlighting potential improvements and suggesting alternatives while maintaining a collaborative tone.
+    
+    19. DOCUMENT FINALIZATION: Prepare the final document with all required elements and confirm with the Product Owner before saving to S3. Provide a summary of key components included and any areas that might need further refinement in the future.
+   
+  expected_output: >
+    A natural, conversational response that:
+    - Guides the requirement refinement process using the document structure without sounding mechanical
+    - CLEARLY LABELS any newly suggested content with "[Enriched by LLM adhering to Organization KB]" in the actual document text
+    - Ensures the citation appears in the final document and not just in conversation
+    - Asks targeted, contextually relevant questions to elicit missing information rather than just highlighting gaps
+    - Suggests specific improvements based on project context rather than generic advice
+    - Proposes appropriate resource naming conventions
+    - Offers project-specific examples of resource tagging
+    - Provides security requirement suggestions tailored to the project's risk profile based on security policies
+    - Explains regulatory implications and requirements in plain language while ensuring compliance with relevant policies
+    - Recommends appropriate logging requirements based on data sensitivity
+    - Suggests the most appropriate architecture pattern for the specific project needs with justification
+    - Explains compliance requirements in business terms while ensuring alignment with standards
+    - Connects change management requirements to practical project scenarios
+    - Provides infrastructure and automation guidance
+    - Helps identify appropriate resources and operations for the project
+    - Helps translate vague requirements into measurable, testable statements with clear pass/fail criteria
+    - Maintains a collaborative, helpful tone that guides rather than dictates
+    - Provides periodic summaries of progress and remaining gaps
+    - Confirms actions and communicates next steps clearly
+    - Displays the complete refined document for final review when command for save is given
+   
+  agent: chat_agent

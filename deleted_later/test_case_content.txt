@@ -1,0 +1,50 @@
+Test Case Document – Password Policy Including Special Character
+1. Overview
+This update was introduced following feedback from the Security Audit Team.
+Requirement Change: Passwords must now include at least one special character.
+Originator of Test Code: Software Development Engineer in Test (SDET)
+This document includes test cases for validating the password policy which requires passwords to:
+- Be at least 8 characters long
+- Include at least one numeric digit
+- Include at least one special character
+2. Test Cases
+TC001
+Description: Password with less than 8 characters
+Input: abc1$
+Expected Result: Rejected – Must be at least 8 characters
+TC002
+Description: Password with 8 characters but no number
+Input: abcd@xyz
+Expected Result: Rejected – Must include at least one number
+TC003
+Description: Password with number but no special character
+Input: abcd1234
+Expected Result: Rejected – Must include at least one special character
+TC004
+Description: Password with special character but no number
+Input: abcd@xyz
+Expected Result: Rejected – Must include at least one number
+TC005
+Description: Valid password with 8 characters, number, and special character
+Input: abc1@def
+Expected Result: Accepted
+TC006
+Description: Valid password with more than 8 characters, number, and special character
+Input: MyPass123!
+Expected Result: Accepted
+3. Additional Inputs Based on New Requirement
+Originator of Test Code: Software Development Engineer in Test (SDET)
+Requirement Change Source: Client
+This update was introduced following feedback from Client.
+Input 1
+Password: 1234@5678
+Expected Result: Accepted – Meets length, number, and special character criteria
+Input 2
+Password: abcdefgh
+Expected Result: Rejected – No number and no special character
+Input 3
+Password: abcd1234
+Expected Result: Rejected – Missing special character
+Input 4
+Password: Ab1$xyz9
+Expected Result: Accepted – Valid password
